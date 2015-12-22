@@ -3,7 +3,7 @@
 
 [Wallet](http://maybeiwill.me/wallet/)
 
-##Features
+##Feature Structure
 +  timeline
    *  year
    *  month
@@ -115,7 +115,7 @@ Detail = {
 };
 
 
-// 地理位置的模型
+// 地理位置模型，作为帐目详情的附加信息
 Pos = {
 	pos_id : Number,
 	longitude : Number,
@@ -123,7 +123,7 @@ Pos = {
 	pos_name : String
 };
 
-// 附件详情模型，作为帐目的附件，目前只提供照片
+// 附件模型，目前只提供照片
 Attachment = {
 	attach_id : Number,
 	path : String,

@@ -1,5 +1,7 @@
-#Tally
-[See Wallet](http://maybeiwill.me/wallet/)
+#Tally [Memo your finaces]
+*Referrence project*
+
+[Wallet](http://maybeiwill.me/wallet/)
 
 ##Features
 +  timeline
@@ -49,6 +51,7 @@ User = {
 	create_date : String
 };
 
+// 用户信息模型
 UserInfo = {
 	user_info_id : Number,
 	user_id : Number,
@@ -71,6 +74,7 @@ Avatar = {
 Wallet = {
 	wallet_id : Number,
 	wallet_name : String,  [银行卡、现金、医保卡、红包、公积金等]
+	amount : Number,
 	comment : String,
 	create_date : String
 };
@@ -82,7 +86,7 @@ Income = {
 	wallet_id : Number,
 	type : String, [工资、奖金、福利、补贴、彩票等]
 	amount : Number,
-	detail_id : Number
+	detail_id : Number [详情，见Detail的data model]
 	
 };
 
@@ -92,19 +96,19 @@ Expense = {
 	wallet_id : Number,
 	type : String, [房租、水电费、话费、交通费、油费等]
 	amount : Number,
-	detail_id : Number
+	detail_id : Number [详情，见Detail的data model]
 };
 
 // 帐目的详情模型
 Detail = {
 	detail_id : Number,
 	comment : String,
-	photo_id  : Array
+	attach_id  : Array
 };
 
-// 照片详情
-Photo = {
-	photo_id : Number,
+// 附件详情模型，作为帐目的附件，目前只提供照片
+Attachment = {
+	attach_id : Number,
 	path : String,
 	create_date : String
 };

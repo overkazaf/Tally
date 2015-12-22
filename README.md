@@ -84,7 +84,7 @@ Wallet = {
 Income = {
 	income_id : Number,
 	wallet_id : Number,
-	type : String, [工资、奖金、福利、补贴、彩票等]
+	type_id : Number, [工资、奖金、福利、补贴、彩票等]
 	amount : Number,
 	detail_id : Number [详情，见Detail的data model]
 	
@@ -94,16 +94,33 @@ Income = {
 Expense = {
 	expense_id : Number,
 	wallet_id : Number,
-	type : String, [房租、水电费、话费、交通费、油费等]
+	type_id : Number, [房租、水电费、话费、交通费、油费等]
 	amount : Number,
 	detail_id : Number [详情，见Detail的data model]
+};
+
+// 帐单类型
+Type = {
+	type_id : Number,
+	type_name : String,
+	create_date : String
 };
 
 // 帐目的详情模型
 Detail = {
 	detail_id : Number,
+	pos_id : Number,
 	comment : String,
 	attach_id  : Array
+};
+
+
+// 地理位置的模型
+Pos = {
+	pos_id : Number,
+	longitude : Number,
+	latitude : Number,
+	pos_name : String
 };
 
 // 附件详情模型，作为帐目的附件，目前只提供照片

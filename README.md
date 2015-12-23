@@ -1,5 +1,7 @@
 #Tally [Memo your finaces]
-*Referrence projects*
+
+
+##Referrence projects
 
 [Wallet](http://maybeiwill.me/wallet/)
 

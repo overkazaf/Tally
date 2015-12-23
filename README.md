@@ -1,5 +1,5 @@
 #Tally [Memo your finaces]
-*Referrence project*
+*Referrence projects*
 
 [Wallet](http://maybeiwill.me/wallet/)
 
@@ -12,6 +12,7 @@
       * type
       * position
       * amount
+      * hasPicture      
       * ...
       
       
@@ -131,10 +132,25 @@ Attachment = {
 };
 ```
 
-`第一版本功能概要`
+
+## 下边是给开发者的废话
+`v1.0版本功能概要`
 
 *  提供增加（删除）钱包的功能
 *  提供在某一钱包内的增加（删除）收入或支出功能
-*  提供按日期、类型等条件查询帐目的功能
-*  提供按日期、金额、分类的排序功能
+*  提供按日期、类型、[地点]等条件查询帐目的功能
+*  提供按日期、金额、分类、[地点]的排序功能
 *  个人信息提供签名和头像上传、更换，修改密码的功能
+
+`IDE`
+
+Android Studio
+
+
+`框架`
+
+Android/PhoneGap + SQLLite
+
+`版本支持`
+
+Android 4.1.2及以上版本

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.felix.mapper.LoginMapper">
+<select id="validateloginuser" resultType="map">
+SELECT role,loginstate
+FROM  user_table
+WHERE uname = #{0}
+AND   pwd= #{1}
+</select>
+
+<update id="updateloginstate">
+update user_table
+set loginstate = #{1}
+where uname = #{0}
+</update>
+<select id="getcountadminlogins" resultType="Integer">
+select COUNT(*) from user_table
+where role = 'admin'
+and loginstate = 'YES'
+</select>
+
+</mapper>

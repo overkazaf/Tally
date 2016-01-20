@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/et_name"
+        android:textSize="20sp"
+        android:text="@string/count" />
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_alignParentRight="true" 
+        android:layout_toRightOf="@+id/tv_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:inputType=""
+        android:hint="@string/tip_name"
+        />
+    
+    <TextView
+        android:id="@+id/tv_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/et_psw"
+        android:layout_below="@id/tv_name"
+        android:text="@string/passwd"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/et_name"
+        android:layout_below="@+id/et_name"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/tv_name"
+        android:ems="10"
+        android:hint="@string/tip_psw"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_psw"
+        android:layout_alignRight="@+id/et_psw"
+        android:layout_below="@+id/et_psw"
+        android:layout_marginTop="16dp"
+        android:text="@string/btnlogin_txt"
+        android:enabled="false"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btn_login"
+        android:layout_below="@+id/btn_login"
+        android:text="@string/forget_txt" />
+
+</RelativeLayout>

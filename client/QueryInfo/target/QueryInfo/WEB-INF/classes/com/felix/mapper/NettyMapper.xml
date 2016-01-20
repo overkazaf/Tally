@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.felix.mapper.NettyMapper">
+	<select id="getconfigurationbyjfid" resultType="jfconfiguration">
+		SELECT
+		address AS jfadress
+		,port AS port
+		,ip AS ip
+		,model AS model
+		,start AS start
+		,sendmsg AS sendmsg
+		FROM jfinfo_table,currentcfg_table
+		WHERE jfinfo_table.jfid = currentcfg_table.jfid
+		AND jfinfo_table.jfid = #{0}
+	</select>
+
+	<insert id="addjfinfo" parameterType="insertdatainfo">
+		insert into info_table
+		(port,T2530temp,sensorbacktemp,sensortemp,sensrohumlity,light,humansensor,shake)
+		values
+		(#{port},
+		#{T2350temp},
+		#{sensorbacktemp},
+		#{sensortemp},
+		#{sensorhumlity},
+		#{light},
+		#{humansensor},
+		#{shake}
+		)
+	</insert>
+
+	<update id="updatejfconfiguration" parameterType="jfconfiguration">
+		update currentcfg_table
+		set ip = #{ip},
+		model = #{model},
+		start = #{start}
+		where jfid = #{jfid}
+	</update>
+
+	<update id="initstart">
+		update currentcfg_table
+		set start = 'NO'
+	</update>
+
+	<select id="getthresholdbyport" resultType="thresholdvalue">
+		SELECT
+		tempthreshold AS temthresHold
+		,humlitythreshold AS humlitythresHold
+		,lightthreshold AS ligghtthresHold
+		,shakethreshold AS shakethresHold
+		,humansensorthredshold AS humanthresHold
+		FROM threshold_table,jfinfo_table
+		WHERE threshold_table.jfid = jfinfo_table.jfid
+		AND jfinfo_table.port = #{0}
+	</select>
+
+	<select id="getphonebyport" resultType="String">
+		select admin_table.phone
+		from admin_table,jfinfo_table
+		WHERE
+		jfinfo_table.adminid = admin_table.adminid
+		AND
+		jfinfo_table.port = #{0}
+	</select>
+
+	<select id="getsendmsgbyjfid" resultType="String">
+		select currentcfg_table.sendmsg
+		from currentcfg_table
+		where jfid = #{0}
+	</select>
+
+	<update id="updatemsgbyjfid">
+		update currentcfg_table
+		set sendmsg = #{1}
+		where jfid = #{0}
+	</update>
+
+</mapper>

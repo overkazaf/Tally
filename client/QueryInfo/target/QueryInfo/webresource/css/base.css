@@ -1,0 +1,26 @@
+#copyright{
+    font-family: "Times New Roman";
+    font-size: 15px;
+    width: 70%;
+    color:silver;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+#allmap
+{
+	height:600px;
+	margin:5px 0px;
+	padding:0px;
+}
+.infobox{
+	background-color:#F5F5F5;
+	height:98px;
+	width:210px;
+	border: 1px solid #BEBEBE;
+	z-index:999;
+	display:block;
+	position:absolute;
+	top:0px;
+	left:15px;
+}

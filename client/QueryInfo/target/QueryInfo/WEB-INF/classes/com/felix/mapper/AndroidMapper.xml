@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.felix.mapper.AndroidMapper">
+<select id="getandroidPCroomInfo" resultType="androidgetpcroominfo">
+select
+ name AS adminname,
+ phone AS adminphone,
+ sensorbacktemp AS backTemp,
+ sensortemp AS temp,
+ sensrohumlity AS humility,
+ light AS light,
+ humansensor AS sensor,
+ shake AS shake
+ from info_table,admin_table,jfinfo_table 
+ where info_table.recordid=IDENT_CURRENT('info_table')
+ AND admin_table.adminid = jfinfo_table.adminid
+ AND info_table.port = jfinfo_table.port
+ AND jfinfo_table.jfid = #{0}
+</select>
+</mapper>

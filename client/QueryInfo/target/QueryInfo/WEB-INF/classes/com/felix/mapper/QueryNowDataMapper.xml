@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.felix.mapper.QueryNowDataMapper">
+<select id="queryInfo" resultType="pcroominfo">
+select 
+ sensorbacktemp AS backTemp,
+ sensortemp AS sensorTemp,
+ sensrohumlity AS sensorHumlity,
+ light AS light,
+ humansensor AS humansensor,
+ shake AS shake
+ from info_table where info_table.recordid=IDENT_CURRENT('info_table');
+</select>
+</mapper>

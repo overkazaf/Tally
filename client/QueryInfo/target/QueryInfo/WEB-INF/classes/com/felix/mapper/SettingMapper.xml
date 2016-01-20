@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.felix.mapper.SettingMapper">
+<select id="listThresholdValues" resultType="thresholdvalue">
+SELECT 
+      jfinfo_table.jfid
+      ,address AS jfaddress
+      ,tempthreshold AS temthresHold
+      ,humlitythreshold AS humlitythresHold
+      ,lightthreshold AS ligghtthresHold
+      ,shakethreshold AS shakethresHold
+      ,humansensorthredshold AS humanthresHold
+  FROM threshold_table,jfinfo_table
+  WHERE threshold_table.jfid = jfinfo_table.jfid
+</select>
+
+<select id="listLabadmin" resultType="labadmin">
+SELECT adminid
+      ,name
+      ,sex
+      ,phone
+      ,position
+  FROM admin_table
+</select>
+
+<select id="listComputerrooms" resultType="computerroom">
+SELECT jfid
+      ,adminid
+      ,port
+      ,address
+FROM jfinfo_table
+</select>
+
+<update id="updateJfinfo" parameterType="computerroom">
+UPDATE jfinfo_table
+SET adminid= #{labAdmin.adminid},
+    port= #{port},
+    address=#{address}
+WHERE jfid= #{jfid}
+</update>
+
+<update id="updateThreshold" parameterType="thresholdvalue">
+UPDATE threshold_table
+SET tempthreshold= #{temthresHold},
+    humlitythreshold = #{humlitythresHold},
+    lightthreshold = #{ligghtthresHold},
+    humansensorthredshold = #{humanthresHold},
+    shakethreshold = #{shakethresHold}
+WHERE jfid= #{jfid}
+</update>
+
+<update id="updateLabadmin" parameterType="labadmin"> 
+update admin_table
+set name = #{name},
+    sex = #{sex},
+    phone = #{phone},
+    position = #{position}
+where adminid = #{adminid};
+</update>
+
+<!-- delete  -->
+<delete id="deletejfByid" parameterType="String">
+delete  jfinfo_table
+where jfid = #{0}
+</delete>
+
+<delete id="deletethresholdByid" parameterType="String">
+delete threshold_table
+where jfid = #{0}
+</delete>
+
+<delete id="deleteadminByid" parameterType="String">
+delete admin_table
+where adminid = #{0}
+</delete>
+
+<!-- Add -->
+<insert id="addjf" parameterType="computerroom">
+insert into jfinfo_table
+(jfid, adminid,port,address)
+VALUES
+(
+ #{jfid},
+ #{labAdmin.adminid},
+ #{port},
+ #{address} 
+)
+</insert>
+
+<insert id="addthreshold" parameterType="thresholdvalue">
+INSERT INTO threshold_table
+(jfid,tempthreshold,humlitythreshold,lightthreshold,shakethreshold,humansensorthredshold)
+VALUES
+(
+#{jfid},
+#{temthresHold},
+#{humlitythresHold},
+#{ligghtthresHold},
+#{shakethresHold},
+#{shakethresHold}
+)
+</insert>
+
+<insert id="addadmin" parameterType="labadmin">
+INSERT INTO admin_table
+(adminid,name,sex,phone,position)
+VALUES
+(
+#{adminid},
+#{name},
+#{sex},
+#{phone},
+#{position}
+)
+</insert>
+
+<insert id="addcurrentjfconfig" parameterType="String">
+insert into currentcfg_table(jfid)
+values(#{0})
+</insert>
+
+</mapper>

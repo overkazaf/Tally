@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tally.mapper.AnalysisMapper">
+<select id="listDateinfo" resultType="dateinfo" statementType="STATEMENT">
+select ${querytype} AS data,adddate AS date,addtime AS time from info_table
+where(adddate = '${stdate}' and addtime > '${sttime}')
+union
+select ${querytype},adddate,addtime from info_table
+where adddate between '${stdatenxt}' and '${enddatepre}'
+union
+select ${querytype},adddate,addtime from info_table
+where(adddate = '${enddate}' and '${edtime}' > addtime )
+order by adddate,addtime
+</select>
+<select id="listTodayinfo" resultType="dateinfo" statementType="STATEMENT">
+select ${querytype} AS data,adddate AS date,addtime AS time from info_table
+where adddate = '${date}'
+and addtime between '${sttime}' and '${endtime}'
+</select>
+</mapper>

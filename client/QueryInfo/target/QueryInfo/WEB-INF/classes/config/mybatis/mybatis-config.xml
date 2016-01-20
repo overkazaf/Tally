@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<settings>
+<setting name="defaultExecutorType" value="BATCH" />
+</settings>
+<typeAliases>
+<typeAlias alias="labadmin" type="com.felix.entity.LabAdmin"/>
+<typeAlias alias="pcroominfo" type="com.felix.entity.ComputerRoomInfo"/>
+<typeAlias alias="thresholdvalue" type="com.felix.entity.ThresholdValue"/>
+<typeAlias alias="computerroom" type= "com.felix.entity.ComputerRoom"/>
+<typeAlias alias="dateinfo" type= "com.felix.entity.Dateinfo"/>
+<typeAlias alias="androidgetpcroominfo" type= "com.felix.entity.AndroidgetPCroomInfo"/>
+<typeAlias alias="jfconfiguration" type= "com.felix.entity.JfConfiguration"/>
+<typeAlias alias="insertdatainfo" type= "com.felix.entity.InsertDatainfo"/>
+</typeAliases>
+</configuration>

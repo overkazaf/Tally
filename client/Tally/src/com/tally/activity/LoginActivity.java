@@ -1,8 +1,10 @@
-package com.example.tally;
+package com.tally.activity;
 
-import android.os.Bundle;
+import com.example.tally.R;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -10,10 +12,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
-public class MainActivity extends Activity {
+public class LoginActivity extends Activity {
 	EditText et_name = null;
 	EditText et_pssd = null;
 	Button btn_login = null;
@@ -49,7 +50,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         
         btn_login = (Button)this.findViewById(R.id.btn_login);
 		et_name = (EditText)findViewById(R.id.et_name);
@@ -64,10 +65,11 @@ public class MainActivity extends Activity {
 				//String name = et_name.getText().toString().trim();
 				//String passwd = et_pssd.getText().toString().trim();
 				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, SlidingMenu.class);
-				MainActivity.this.startActivity(intent);
-				//setContentView(R.layout.activity_login);
+				intent.setClass(LoginActivity.this, MainActivity.class);
+				startActivity(intent);
+				LoginActivity.this.finish();
 			}
+				
         });
 
     }

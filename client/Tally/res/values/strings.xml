@@ -13,4 +13,6 @@
     <string name="itm_td_txt">今日详情</string>
     <string name="itm_stat_txt">统计信息</string>
     <string name="itm_setting_txt">设置</string>
+    <string name="itm_history_txt">历史记录</string>
+    <string name="user_name">小飞鱼</string>
 </resources>

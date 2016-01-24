@@ -2,22 +2,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0000" >
+    android:background="#E5E5E5" >
 
     <LinearLayout
+        android:id="@+id/id_infpic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical" >
-
+        >
+        <!-- 头像和用户名 -->
         <RelativeLayout
+            
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#1C86EE"
+            >
+            <com.tally.helper.CircleImageView
+                android:id="@+id/id_infopic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/infopic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/id_infopic"
+                android:text="@string/user_name"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+    
+    
+    
+    <LinearLayout
+        android:id="@+id/id_menuwrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_infpic"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        
+        >
+        <!-- 今日详情 -->
+        <RelativeLayout
+            android:tag="detail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <ImageView
-                android:id="@+id/id_imgstat"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/id_imgdetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -28,18 +66,46 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@id/id_imgstat"
+                android:layout_toRightOf="@id/id_imgdetail"
                 android:text="@string/itm_td_txt"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
+        
+        <!-- 历史记录 -->
         <RelativeLayout
+            android:tag="history"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/id_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/history" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/id_setting"
+                android:text="@string/itm_history_txt"
+                android:textSize="15sp" />
+        </RelativeLayout>
+        
+        <!-- 统计信息  -->
+        <RelativeLayout
+            android:tag="statistic"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/id_imgstat"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -52,16 +118,19 @@
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@id/id_imgstat"
                 android:text="@string/itm_stat_txt"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
+        
+        <!-- 设置 -->
         <RelativeLayout
+            android:tag="setting"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/id_setting"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -74,7 +143,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@id/id_setting"
                 android:text="@string/itm_setting_txt"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
-     </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>

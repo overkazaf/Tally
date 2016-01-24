@@ -6,5 +6,6 @@
 </settings>
 <typeAliases>
 <typeAlias type="com.tally.entity.UserEntity"  alias="user"/>
+<typeAlias type="com.tally.entity.ConsumptionEntity" alias="consumption" />
 </typeAliases>
 </configuration>

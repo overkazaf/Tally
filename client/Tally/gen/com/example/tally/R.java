@@ -69,43 +69,45 @@ containing a value of this type.
         public static final int text_size=0x7f050002;
     }
     public static final class drawable {
-        public static final int breakfast=0x7f020000;
-        public static final int car=0x7f020001;
-        public static final int detail=0x7f020002;
-        public static final int history=0x7f020003;
-        public static final int hotel=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int infopic=0x7f020006;
-        public static final int lunch=0x7f020007;
-        public static final int menuback=0x7f02000c;
-        public static final int qq=0x7f020008;
-        public static final int setting=0x7f020009;
-        public static final int stationery=0x7f02000a;
-        public static final int statistic=0x7f02000b;
+        public static final int add=0x7f020000;
+        public static final int breakfast=0x7f020001;
+        public static final int car=0x7f020002;
+        public static final int detail=0x7f020003;
+        public static final int history=0x7f020004;
+        public static final int hotel=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int infopic=0x7f020007;
+        public static final int lunch=0x7f020008;
+        public static final int menuback=0x7f02000d;
+        public static final int qq=0x7f020009;
+        public static final int setting=0x7f02000a;
+        public static final int stationery=0x7f02000b;
+        public static final int statistic=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f040015;
-        public static final int btn1=0x7f040003;
-        public static final int btn_login=0x7f040008;
-        public static final int et_name=0x7f040005;
-        public static final int et_psw=0x7f040007;
+        public static final int action_settings=0x7f040016;
+        public static final int btn1=0x7f04000e;
+        public static final int btn_login=0x7f040009;
+        public static final int et_name=0x7f040006;
+        public static final int et_psw=0x7f040008;
         public static final int fat=0x7f040000;
-        public static final int forget=0x7f040009;
-        public static final int id_content=0x7f04000c;
-        public static final int id_imgdetail=0x7f040012;
-        public static final int id_imgstat=0x7f040014;
-        public static final int id_imgtype=0x7f04000d;
-        public static final int id_infopic=0x7f040010;
-        public static final int id_infpic=0x7f04000f;
-        public static final int id_maincontent=0x7f04000b;
-        public static final int id_menu=0x7f04000a;
-        public static final int id_menuwrapper=0x7f040011;
-        public static final int id_setting=0x7f040013;
-        public static final int id_texttype=0x7f04000e;
+        public static final int forget=0x7f04000a;
+        public static final int id_content=0x7f04000d;
+        public static final int id_imgdetail=0x7f040013;
+        public static final int id_imgstat=0x7f040015;
+        public static final int id_imgtype=0x7f04000f;
+        public static final int id_infopic=0x7f040012;
+        public static final int id_infpic=0x7f040011;
+        public static final int id_maincontent=0x7f04000c;
+        public static final int id_menu=0x7f04000b;
+        public static final int id_menuwrapper=0x7f040004;
+        public static final int id_setting=0x7f040014;
+        public static final int id_texttype=0x7f040010;
         public static final int mid=0x7f040001;
         public static final int thin=0x7f040002;
-        public static final int tv_name=0x7f040004;
-        public static final int tv_psw=0x7f040006;
+        public static final int topmenu=0x7f040003;
+        public static final int tv_name=0x7f040005;
+        public static final int tv_psw=0x7f040007;
     }
     public static final class layout {
         public static final int activity_detail=0x7f030000;
@@ -116,6 +118,7 @@ containing a value of this type.
         public static final int activity_statistic=0x7f030005;
         public static final int detail_item=0x7f030006;
         public static final int left_menu=0x7f030007;
+        public static final int topmenu=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;

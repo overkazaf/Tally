@@ -1,10 +1,16 @@
 package com.tally.activity;
 
+import java.util.concurrent.locks.ReentrantLock;
+
+import org.json.JSONException;
+
 import com.example.tally.R;
-import com.litesuits.http.LiteHttp;
-import com.litesuits.http.exception.HttpException;
-import com.litesuits.http.listener.HttpListener;
-import com.litesuits.http.request.StringRequest;
+import com.loopj.android.http.*;
+import com.tally.helper.ShowInfo;
+import com.tally.helper.TallyHttpClient;
+import com.tally.mode.TJsonHttpResponseHandler;
+
+import cz.msebera.android.httpclient.Header;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,7 +22,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import com.litesuits.http.response.Response;
 
 public class LoginActivity extends Activity {
 	EditText et_name = null;
@@ -66,38 +71,40 @@ public class LoginActivity extends Activity {
 
 			@Override
 			public void onClick(View arg) {
-				// String name = et_name.getText().toString().trim();
-				// String passwd = et_pssd.getText().toString().trim();
+				String name = et_name.getText().toString().trim();
+				String passwd = et_pssd.getText().toString().trim();
 
 				try {
-
-					//ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-					//NetworkInfo info = cm.getActiveNetworkInfo();
-					
-					LiteHttp liteHttp = LiteHttp.newApacheHttpClient(null);
-					liteHttp.executeAsync(new StringRequest("http://localhost:8080/tally/login?username=panfei&passwd=123456").setHttpListener(new HttpListener<String>(false) {
-			            @Override
-			            public void onSuccess(String s,  Response<String> response) {
-			                // 成功：主线程回调，反馈一个string
-			                response.printInfo();
-			            }
-			            @Override
-			            public void onFailure(HttpException e, Response<String> response) {
-			                // 失败：主线程回调，反馈异常
-			                response.printInfo();
-			            }
-			        }));
-					
-					// HttpSendHelper.SendQuery("http://localhost:8080/tally/login?username=panfei&passwd=123456");
+					RequestParams params = new RequestParams();
+					params.add("username",name);
+					params.add("passwd",passwd);
+					TallyHttpClient.get("login", params, new TJsonHttpResponseHandler() {
+						
+						@Override
+						public void onSuccess(int statusCode, Header[] headers, org.json.JSONObject response) 
+						{
+							try {
+								if(statusCode == 200 && response != null && response.get("status").equals("success")){
+									//登录成功
+									Intent intent = new Intent();
+									intent.setClass(LoginActivity.this, MainActivity.class);
+									startActivity(intent);
+									LoginActivity.this.finish();
+								}
+								else 
+								{
+									//登录失败
+									
+								}
+							} catch (JSONException e) {
+								
+							}
+						};
+						
+					});
 				} catch (Exception e) {
-					// TODO: handle exception
-					System.out.println(e);
+					
 				}
-
-				Intent intent = new Intent();
-				intent.setClass(LoginActivity.this, MainActivity.class);
-				startActivity(intent);
-				LoginActivity.this.finish();
 			}
 
 		});

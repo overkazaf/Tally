@@ -20,16 +20,11 @@ public class LoginController {
 	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
     @ResponseBody public String login(String username,String passwd) throws JSONException{
-		//String username = mapobject.get("name");
-		//String passwd = mapobject.get("passwd");
-		System.out.println(username);
-		System.out.println(passwd);
-		JSONObject jsonObject = new JSONObject();
-		
 		Map<String,String> result = loginservice.validateloginuser(username, passwd);
+		String resStr = "";
 		if(result != null){
-			jsonObject.append("state", "success");
+			resStr = "{'status':'success'}";
 		}
-    	return jsonObject.toString();
+    	return resStr;
 	}
 }

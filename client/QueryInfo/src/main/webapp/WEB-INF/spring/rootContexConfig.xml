@@ -13,7 +13,18 @@
 	        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 	        http://www.springframework.org/schema/aop
 	        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/plain;charset=UTF-8</value>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	<mvc:resources location="/webresource/" mapping="/webresource/**" />
 	<!-- 使用注解符号来和相应的annotation的bean来访问相应的的Controller -->
 	<context:component-scan base-package="com.felix.controller" />
@@ -32,12 +43,13 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="classpath:config/dev/application.properties"></property>
 	</bean>
-	
+
 	<!-- SqlServer DataBase -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${driver}"></property>
-		<property name="url" value="jdbc:mysql://${hostname}:${portnumber}/${databasename}"/>
+		<property name="url"
+			value="jdbc:mysql://${hostname}:${portnumber}/${databasename}" />
 		<property name="username" value="${username}"></property>
 		<property name="password" value="${password}"></property>
 		<property name="validationQueryTimeout" value="1" />
@@ -47,7 +59,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:config/mybatis/mybatis-config.xml"></property>
 	</bean>
-	
+
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.tally.mapper"></property>
 	</bean>

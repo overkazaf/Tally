@@ -19,23 +19,25 @@
             android:src="@drawable/breakfast" />
 
         <TextView
-            android:id="@+id/id_texttype"
+            android:id="@+id/id_cosumname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/id_imgtype"
-            android:text="@string/itm_td_txt"
+            android:text="a"
             android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/cost_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="50dp"
-            android:layout_toRightOf="@id/id_texttype"
-            android:text="@string/itm_td_txt"
+            android:layout_toRightOf="@id/id_cosumname"
+            android:text="b"
             android:textSize="15sp" />
+
     </RelativeLayout>
     
      <View

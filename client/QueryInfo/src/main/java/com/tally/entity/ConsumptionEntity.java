@@ -3,6 +3,7 @@ package com.tally.entity;
 import java.math.BigDecimal;
 
 
+
 public class ConsumptionEntity {
 	public String UserID;
 	public String ConsumName;
@@ -39,6 +40,4 @@ public class ConsumptionEntity {
 	public void setCost(BigDecimal cost) {
 		Cost = cost;
 	}
-	
-	
 }

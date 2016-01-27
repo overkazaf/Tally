@@ -3,7 +3,7 @@
 <mapper namespace="com.tally.mapper.DetailMapper">
 <select id="ListTodyDetailByUserID" resultType="consumption">
 SELECT userid AS UserID,
-       consumName AS ConsumName 
+       consumName AS ConsumName,
        consumtype AS ConsumType,
        location AS Location,
        cost AS Cost

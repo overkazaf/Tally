@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class DetailController {
 	@ResponseBody public String listTodayDetailsByDate(String userID,String beginDate,String endDate) throws JSONException{
 		Date bgDate = new Date();
 		Date edDate = new Date();
-		JSONObject jsonObject = new JSONObject();
+		JSONArray jsonArray = new JSONArray();
 		try
 		{
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -37,15 +38,15 @@ public class DetailController {
 			ArrayList<ConsumptionEntity> result = detailService.listConsumptionByDate(userID,sdf.format(bgDate)+" 00:00:00",sdf.format(edDate)+" 23:59:59");
 			
 			if(result != null && result.size() != 0){
-				int count = 0;
 				for (ConsumptionEntity consumptionEntity : result) {
-					jsonObject.put(Integer.toString(count),JSONUtil.entityToJsonStr(consumptionEntity));
+					jsonArray.put(JSONUtil.entityToJsonStr(consumptionEntity));
 				}
 			}
 		}catch(Exception ex)
 		{
-			
+			ex.printStackTrace();
 		}
-    	return jsonObject.toString();
+		
+    	return jsonArray.toString();
 	}
 }

@@ -2,9 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tally.mapper.DetailMapper">
 <select id="ListTodyDetailByUserID" resultType="consumption">
-SELECT userid,username
-FROM  users
-WHERE username=#{0}
-AND   password=#{1}
+SELECT userid AS UserID,
+       consumName AS ConsumName 
+       consumtype AS ConsumType,
+       location AS Location,
+       cost AS Cost
+FROM consumption
+WHERE userid=#{0}
+AND lastchangetime between #{1} and #{2}
 </select>
 </mapper>

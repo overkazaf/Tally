@@ -1,6 +1,9 @@
 D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\service\LoginService.java
+D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\util\JSONUtil.java
 D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\mapper\DetailMapper.java
 D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\entity\UserEntity.java
+D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\service\DetailService.java
+D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\controller\DetailController.java
 D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\controller\LoginController.java
 D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\mapper\LoginMapper.java
 D:\OpenSource\Tally\client\QueryInfo\src\main\java\com\tally\entity\ConsumptionEntity.java

@@ -85,27 +85,29 @@ containing a value of this type.
         public static final int statistic=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f080018;
+        public static final int action_settings=0x7f08001a;
         public static final int btn1=0x7f08000e;
         public static final int btn_login=0x7f080009;
-        public static final int cost_text=0x7f080011;
+        public static final int button1=0x7f080010;
+        public static final int cost_text=0x7f080013;
         public static final int et_name=0x7f080006;
         public static final int et_psw=0x7f080008;
         public static final int fat=0x7f080000;
         public static final int forget=0x7f08000a;
         public static final int id_content=0x7f08000d;
-        public static final int id_cosumname=0x7f080010;
-        public static final int id_imgdetail=0x7f080015;
-        public static final int id_imgstat=0x7f080017;
-        public static final int id_imgtype=0x7f08000f;
-        public static final int id_infopic=0x7f080013;
-        public static final int id_infpic=0x7f080012;
+        public static final int id_cosumname=0x7f080012;
+        public static final int id_imgdetail=0x7f080017;
+        public static final int id_imgstat=0x7f080019;
+        public static final int id_imgtype=0x7f080011;
+        public static final int id_infopic=0x7f080015;
+        public static final int id_infpic=0x7f080014;
         public static final int id_maincontent=0x7f08000c;
         public static final int id_menu=0x7f08000b;
-        public static final int id_menuwrapper=0x7f080014;
-        public static final int id_setting=0x7f080016;
+        public static final int id_menuwrapper=0x7f080016;
+        public static final int id_setting=0x7f080018;
         public static final int items=0x7f080004;
         public static final int mid=0x7f080001;
+        public static final int testText=0x7f08000f;
         public static final int thin=0x7f080002;
         public static final int topmenu=0x7f080003;
         public static final int tv_name=0x7f080005;
@@ -118,9 +120,10 @@ containing a value of this type.
         public static final int activity_main=0x7f030003;
         public static final int activity_setting=0x7f030004;
         public static final int activity_statistic=0x7f030005;
-        public static final int detail_item=0x7f030006;
-        public static final int left_menu=0x7f030007;
-        public static final int topmenu=0x7f030008;
+        public static final int activity_test=0x7f030006;
+        public static final int detail_item=0x7f030007;
+        public static final int left_menu=0x7f030008;
+        public static final int topmenu=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -137,6 +140,10 @@ containing a value of this type.
         public static final int itm_stat_txt=0x7f05000a;
         public static final int itm_td_txt=0x7f050009;
         public static final int passwd=0x7f050004;
+        public static final int testingButton=0x7f05000f;
+        /**  Testing 
+         */
+        public static final int testingText=0x7f05000e;
         public static final int tip_name=0x7f050005;
         public static final int tip_psw=0x7f050006;
         public static final int user_name=0x7f05000d;

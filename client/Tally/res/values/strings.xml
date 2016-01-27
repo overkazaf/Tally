@@ -15,4 +15,7 @@
     <string name="itm_setting_txt">设置</string>
     <string name="itm_history_txt">历史记录</string>
     <string name="user_name">小飞鱼</string>
+    <!-- Testing -->
+    <string name="testingText">测试文本</string>
+    <string name="testingButton">测试按钮</string>
 </resources>

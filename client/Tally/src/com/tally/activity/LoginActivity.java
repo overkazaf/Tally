@@ -79,7 +79,11 @@ public class LoginActivity extends Activity {
 					startActivity(intent);
 					LoginActivity.this.finish();
 				} else {
-					Toast.makeText(LoginActivity.this, "Username/Password is wrong, try again", Toast.LENGTH_LONG);
+					Intent intent = new Intent();
+					intent.setClass(LoginActivity.this, TestActivity.class);
+					startActivity(intent);
+					LoginActivity.this.finish();
+					//Toast.makeText(LoginActivity.this, "Username/Password is wrong, try again", Toast.LENGTH_LONG);
 				}
 //				try {
 //					RequestParams params = new RequestParams();

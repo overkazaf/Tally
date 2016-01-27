@@ -29,6 +29,10 @@
            
         </activity>
         
+        <activity android:name="com.tally.activity.TestActivity">
+           
+        </activity>
+        
     </application>
 
 </manifest>

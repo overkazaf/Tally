@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 	EditText et_name = null;
@@ -30,15 +31,13 @@ public class LoginActivity extends Activity {
 	private TextWatcher tw = new TextWatcher() {
 
 		@Override
-		public void onTextChanged(CharSequence arg0, int arg1, int arg2,
-				int arg3) {
+		public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
 			// TODO Auto-generated method stub
 
 		}
 
 		@Override
-		public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-				int arg3) {
+		public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
 			// TODO Auto-generated method stub
 
 		}
@@ -73,38 +72,46 @@ public class LoginActivity extends Activity {
 			public void onClick(View arg) {
 				String name = et_name.getText().toString().trim();
 				String passwd = et_pssd.getText().toString().trim();
-
-				try {
-					RequestParams params = new RequestParams();
-					params.add("username",name);
-					params.add("passwd",passwd);
-					TallyHttpClient.get("login", params, new TJsonHttpResponseHandler() {
-						
-						@Override
-						public void onSuccess(int statusCode, Header[] headers, org.json.JSONObject response) 
-						{
-							try {
-								if(statusCode == 200 && response != null && response.get("status").equals("success")){
-									//µÇÂ¼³É¹¦
-									Intent intent = new Intent();
-									intent.setClass(LoginActivity.this, MainActivity.class);
-									startActivity(intent);
-									LoginActivity.this.finish();
-								}
-								else 
-								{
-									//µÇÂ¼Ê§°Ü
-									
-								}
-							} catch (JSONException e) {
-								
-							}
-						};
-						
-					});
-				} catch (Exception e) {
-					
+				
+				if (name.equals("admin") && passwd.equals("admin")) {
+					Intent intent = new Intent();
+					intent.setClass(LoginActivity.this, MainActivity.class);
+					startActivity(intent);
+					LoginActivity.this.finish();
+				} else {
+					Toast.makeText(LoginActivity.this, "Username/Password is wrong, try again", Toast.LENGTH_LONG);
 				}
+//				try {
+//					RequestParams params = new RequestParams();
+//					params.add("username",name);
+//					params.add("passwd",passwd);
+//					TallyHttpClient.get("login", params, new TJsonHttpResponseHandler() {
+//						
+//						@Override
+//						public void onSuccess(int statusCode, Header[] headers, org.json.JSONObject response) 
+//						{
+//							try {
+//								if(statusCode == 200 && response != null && response.get("status").equals("success")){
+//									//ï¿½ï¿½Â¼ï¿½É¹ï¿½
+//									Intent intent = new Intent();
+//									intent.setClass(LoginActivity.this, MainActivity.class);
+//									startActivity(intent);
+//									LoginActivity.this.finish();
+//								}
+//								else 
+//								{
+//									//ï¿½ï¿½Â¼Ê§ï¿½ï¿½
+//									
+//								}
+//							} catch (JSONException e) {
+//								
+//							}
+//						};
+//						
+//					});
+//				} catch (Exception e) {
+//					
+//				}
 			}
 
 		});

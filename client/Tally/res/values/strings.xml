@@ -15,4 +15,14 @@
     <string name="itm_setting_txt">设置</string>
     <string name="itm_history_txt">历史记录</string>
     <string name="user_name">小飞鱼</string>
+    <string name="edit_txt">编辑</string>
+    <string name="delete_txt">删除</string>
+    <string name="edittitle_txt">消费详情</string>
+    <string name="cosumename">消费名称</string>
+    <string name="cosumetype">消费类型</string>
+    <string name="cosumecost">消费金额</string>
+    <string name="cosumeloc">消费地点</string>
+    <string name="submit">提交</string>
+    <string name="reset">重置</string>
+    
 </resources>

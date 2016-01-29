@@ -11,4 +11,17 @@ FROM consumption
 WHERE userid=#{0}
 AND lastchangetime between #{1} and #{2}
 </select>
+
+<!-- 插入新的消费 -->
+<insert id="addConsume" parameterType="consumption">
+INSERT INTO consumption
+(userid,consumname,consumtype,location,cost) VALUES
+(
+#{UserID},
+#{ConsumName},
+#{ConsumType},
+#{Location},
+#{Cost}
+);
+</insert>
 </mapper>

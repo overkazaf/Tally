@@ -8,6 +8,9 @@
 package com.example.tally;
 
 public final class R {
+    public static final class array {
+        public static final int cosumtype=0x7f040000;
+    }
     public static final class attr {
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -63,53 +66,66 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
-        public static final int default_text_size=0x7f050003;
-        public static final int text_size=0x7f050002;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
+        public static final int default_text_size=0x7f060003;
+        public static final int text_size=0x7f060002;
     }
     public static final class drawable {
         public static final int add=0x7f020000;
-        public static final int breakfast=0x7f020001;
-        public static final int car=0x7f020002;
-        public static final int detail=0x7f020003;
-        public static final int history=0x7f020004;
-        public static final int hotel=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int infopic=0x7f020007;
-        public static final int lunch=0x7f020008;
-        public static final int menuback=0x7f02000d;
-        public static final int qq=0x7f020009;
-        public static final int setting=0x7f02000a;
-        public static final int stationery=0x7f02000b;
-        public static final int statistic=0x7f02000c;
+        public static final int border=0x7f020001;
+        public static final int breakfast=0x7f020002;
+        public static final int car=0x7f020003;
+        public static final int delete=0x7f020004;
+        public static final int detail=0x7f020005;
+        public static final int edit=0x7f020006;
+        public static final int editborder=0x7f020007;
+        public static final int history=0x7f020008;
+        public static final int hotel=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int infopic=0x7f02000b;
+        public static final int lunch=0x7f02000c;
+        public static final int menuback=0x7f020012;
+        public static final int more=0x7f02000d;
+        public static final int qq=0x7f02000e;
+        public static final int setting=0x7f02000f;
+        public static final int stationery=0x7f020010;
+        public static final int statistic=0x7f020011;
     }
     public static final class id {
-        public static final int action_settings=0x7f040018;
-        public static final int btn1=0x7f04000e;
-        public static final int btn_login=0x7f040009;
-        public static final int cost_text=0x7f040011;
-        public static final int et_name=0x7f040006;
-        public static final int et_psw=0x7f040008;
-        public static final int fat=0x7f040000;
-        public static final int forget=0x7f04000a;
-        public static final int id_content=0x7f04000d;
-        public static final int id_cosumname=0x7f040010;
-        public static final int id_imgdetail=0x7f040015;
-        public static final int id_imgstat=0x7f040017;
-        public static final int id_imgtype=0x7f04000f;
-        public static final int id_infopic=0x7f040013;
-        public static final int id_infpic=0x7f040012;
-        public static final int id_maincontent=0x7f04000c;
-        public static final int id_menu=0x7f04000b;
-        public static final int id_menuwrapper=0x7f040014;
-        public static final int id_setting=0x7f040016;
-        public static final int items=0x7f040004;
-        public static final int mid=0x7f040001;
-        public static final int thin=0x7f040002;
-        public static final int topmenu=0x7f040003;
-        public static final int tv_name=0x7f040005;
-        public static final int tv_psw=0x7f040007;
+        public static final int action_settings=0x7f050020;
+        public static final int addbtn=0x7f050004;
+        public static final int btn1=0x7f05000f;
+        public static final int btn_login=0x7f05000a;
+        public static final int cost_text=0x7f050018;
+        public static final int edit_cscost=0x7f050012;
+        public static final int edit_csname=0x7f050010;
+        public static final int edit_loc=0x7f050013;
+        public static final int et_name=0x7f050007;
+        public static final int et_psw=0x7f050009;
+        public static final int fat=0x7f050000;
+        public static final int forget=0x7f05000b;
+        public static final int id_content=0x7f05000e;
+        public static final int id_cosumname=0x7f050017;
+        public static final int id_imgdetail=0x7f05001d;
+        public static final int id_imgstat=0x7f05001f;
+        public static final int id_imgtype=0x7f050016;
+        public static final int id_infopic=0x7f05001b;
+        public static final int id_infpic=0x7f05001a;
+        public static final int id_maincontent=0x7f05000d;
+        public static final int id_menu=0x7f05000c;
+        public static final int id_menuwrapper=0x7f05001c;
+        public static final int id_setting=0x7f05001e;
+        public static final int items=0x7f050005;
+        public static final int mid=0x7f050001;
+        public static final int morebtn=0x7f050019;
+        public static final int resetbtn=0x7f050015;
+        public static final int spinner2=0x7f050011;
+        public static final int submitbtn=0x7f050014;
+        public static final int thin=0x7f050002;
+        public static final int topmenu=0x7f050003;
+        public static final int tv_name=0x7f050006;
+        public static final int tv_psw=0x7f050008;
     }
     public static final class layout {
         public static final int activity_detail=0x7f030000;
@@ -118,28 +134,39 @@ containing a value of this type.
         public static final int activity_main=0x7f030003;
         public static final int activity_setting=0x7f030004;
         public static final int activity_statistic=0x7f030005;
-        public static final int detail_item=0x7f030006;
-        public static final int left_menu=0x7f030007;
-        public static final int topmenu=0x7f030008;
+        public static final int detail_edit=0x7f030006;
+        public static final int detail_item=0x7f030007;
+        public static final int detail_pop=0x7f030008;
+        public static final int left_menu=0x7f030009;
+        public static final int topmenu=0x7f03000a;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int btnlogin_txt=0x7f060007;
-        public static final int count=0x7f060003;
-        public static final int forget_txt=0x7f060008;
-        public static final int hello_world=0x7f060002;
-        public static final int itm_history_txt=0x7f06000c;
-        public static final int itm_setting_txt=0x7f06000b;
-        public static final int itm_stat_txt=0x7f06000a;
-        public static final int itm_td_txt=0x7f060009;
-        public static final int passwd=0x7f060004;
-        public static final int tip_name=0x7f060005;
-        public static final int tip_psw=0x7f060006;
-        public static final int user_name=0x7f06000d;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int btnlogin_txt=0x7f070007;
+        public static final int cosumecost=0x7f070013;
+        public static final int cosumeloc=0x7f070014;
+        public static final int cosumename=0x7f070011;
+        public static final int cosumetype=0x7f070012;
+        public static final int count=0x7f070003;
+        public static final int delete_txt=0x7f07000f;
+        public static final int edit_txt=0x7f07000e;
+        public static final int edittitle_txt=0x7f070010;
+        public static final int forget_txt=0x7f070008;
+        public static final int hello_world=0x7f070002;
+        public static final int itm_history_txt=0x7f07000c;
+        public static final int itm_setting_txt=0x7f07000b;
+        public static final int itm_stat_txt=0x7f07000a;
+        public static final int itm_td_txt=0x7f070009;
+        public static final int passwd=0x7f070004;
+        public static final int reset=0x7f070016;
+        public static final int submit=0x7f070015;
+        public static final int tip_name=0x7f070005;
+        public static final int tip_psw=0x7f070006;
+        public static final int user_name=0x7f07000d;
     }
     public static final class style {
         /** 
@@ -163,11 +190,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
     }
     public static final class styleable {
         /** Attributes that can be used with a PersonAttr.

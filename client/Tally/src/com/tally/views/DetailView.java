@@ -1,40 +1,47 @@
 package com.tally.views;
 
-import org.json.JSONObject;
 
 import com.example.tally.R;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.tally.helper.TallyHttpClient;
 import com.tally.mode.BaseView;
 import com.tally.mode.TJsonHttpResponseHandler;
-
 import cz.msebera.android.httpclient.Header;
-
-import android.R.drawable;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
-import android.view.Menu;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 public class DetailView extends BaseView {
-
+	public static DetailEditView popView;
+	public static RelativeLayout detailView;
 	public DetailView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
+		detailView = (RelativeLayout) inflate(context, R.layout.activity_detail, null);
+		addView(detailView);
 		
-		
-		
-		addView(inflate(context, R.layout.activity_detail, null));
+		popView = new DetailEditView(context, null);
+		ImageButton addbtn = (ImageButton)findViewById(R.id.addbtn);
+		addbtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				// TODO 点击添加按钮响应
+				PopupWindow pw = new PopupWindow(popView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
+				pw.setTouchable(true);
+				pw.setBackgroundDrawable(getResources().getDrawable(
+		                R.drawable.menuback));
+				pw.showAtLocation(detailView, Gravity.CENTER, 0, 0);
+			}
+		});
 	}
 	
 	public void RefreshView()
 	{
-		//localhost:8080/tally/todaydetail?userID=0001
 		RequestParams params = new RequestParams();
 		params.add("userID", "0001");
 		TallyHttpClient.get("todaydetail", params, new TJsonHttpResponseHandler() {
@@ -48,15 +55,13 @@ public class DetailView extends BaseView {
 				{
 					for(int i = 0;i<response.length();i++)
 					{
+						DetailItemView detailItemView = new DetailItemView(getContext(), null);
 						String location = response.getJSONObject(i).getString("Location");
 						String cost = response.getJSONObject(i).getString("Cost");
 						String name = response.getJSONObject(i).getString("ConsumName");
-					    View item = inflate(getContext(), R.layout.detail_item, null);
-					    TextView costtv = (TextView)item.findViewById(R.id.cost_text);
-					    TextView costnametv = (TextView)item.findViewById(R.id.id_cosumname);
-					    costtv.setText(cost);
-					    costnametv.setText(name);
-					    itemsView.addView(item);
+					    detailItemView.costNameTextView.setText(name);
+					    detailItemView.costTextView.setText(cost);
+					    itemsView.addView(detailItemView);
 						
 					}
 				}catch(Exception ex)

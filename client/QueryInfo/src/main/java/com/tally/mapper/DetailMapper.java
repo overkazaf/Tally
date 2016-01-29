@@ -6,4 +6,5 @@ import com.tally.entity.ConsumptionEntity;
 
 public interface DetailMapper {
 	public ArrayList<ConsumptionEntity> ListTodyDetailByUserID(String userID,String beginDate,String endDate);
+	public Integer addConsume(ConsumptionEntity consume);
 }

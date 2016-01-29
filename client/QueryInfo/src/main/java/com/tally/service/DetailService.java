@@ -15,4 +15,8 @@ public class DetailService {
 		
 		return detailMapper.ListTodyDetailByUserID(userID, beginDate, endDate);
 	}
+	
+	public Integer addConsume(ConsumptionEntity consume) {
+		return detailMapper.addConsume(consume);
+	}
 }

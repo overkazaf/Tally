@@ -1,12 +1,10 @@
 package com.tally.activity;
 
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.json.JSONException;
 
 import com.example.tally.R;
 import com.loopj.android.http.*;
-import com.tally.helper.ShowInfo;
 import com.tally.helper.TallyHttpClient;
 import com.tally.mode.TJsonHttpResponseHandler;
 

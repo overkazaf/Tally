@@ -1,10 +1,9 @@
 package com.tally.controller;
 
-import java.awt.List;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,5 +47,24 @@ public class DetailController {
 		}
 		
     	return jsonArray.toString();
+	}
+	
+	
+	@RequestMapping(value="/addconsume",method=RequestMethod.GET)
+	@ResponseBody public String addconsume(String userID,String consumeType,String consumeName,String cost,String location) throws JSONException{
+		JSONObject jsonObject = new JSONObject();
+		ConsumptionEntity consume = new ConsumptionEntity();
+		try{
+			consume.setUserID(userID);
+			consume.setConsumName(consumeName);
+			consume.setConsumType(consumeType);
+			consume.setLocation(location);
+			consume.setCost(BigDecimal.valueOf(Double.parseDouble(cost)));
+			detailService.addConsume(consume);
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return jsonObject.toString();
 	}
 }

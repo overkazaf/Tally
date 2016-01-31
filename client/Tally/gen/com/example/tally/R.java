@@ -85,19 +85,22 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02000a;
         public static final int infopic=0x7f02000b;
         public static final int lunch=0x7f02000c;
-        public static final int menuback=0x7f020012;
+        public static final int menuback=0x7f020013;
         public static final int more=0x7f02000d;
         public static final int qq=0x7f02000e;
         public static final int setting=0x7f02000f;
         public static final int stationery=0x7f020010;
         public static final int statistic=0x7f020011;
+        public static final int trip=0x7f020012;
     }
     public static final class id {
-        public static final int action_settings=0x7f050020;
+        public static final int action_settings=0x7f050022;
         public static final int addbtn=0x7f050004;
         public static final int btn1=0x7f05000f;
         public static final int btn_login=0x7f05000a;
         public static final int cost_text=0x7f050018;
+        public static final int delete_btn=0x7f05001b;
+        public static final int edit_btn=0x7f05001a;
         public static final int edit_cscost=0x7f050012;
         public static final int edit_csname=0x7f050010;
         public static final int edit_loc=0x7f050013;
@@ -107,15 +110,15 @@ containing a value of this type.
         public static final int forget=0x7f05000b;
         public static final int id_content=0x7f05000e;
         public static final int id_cosumname=0x7f050017;
-        public static final int id_imgdetail=0x7f05001d;
-        public static final int id_imgstat=0x7f05001f;
+        public static final int id_imgdetail=0x7f05001f;
+        public static final int id_imgstat=0x7f050021;
         public static final int id_imgtype=0x7f050016;
-        public static final int id_infopic=0x7f05001b;
-        public static final int id_infpic=0x7f05001a;
+        public static final int id_infopic=0x7f05001d;
+        public static final int id_infpic=0x7f05001c;
         public static final int id_maincontent=0x7f05000d;
         public static final int id_menu=0x7f05000c;
-        public static final int id_menuwrapper=0x7f05001c;
-        public static final int id_setting=0x7f05001e;
+        public static final int id_menuwrapper=0x7f05001e;
+        public static final int id_setting=0x7f050020;
         public static final int items=0x7f050005;
         public static final int mid=0x7f050001;
         public static final int morebtn=0x7f050019;

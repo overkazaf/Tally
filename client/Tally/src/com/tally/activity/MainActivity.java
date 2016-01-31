@@ -27,6 +27,7 @@ public class MainActivity extends Activity {
 	private static HistoryView historyView;
 	private static SettingView settingView;
 	private static StatisticView statisticView;
+	private static BaseView currentView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -83,24 +84,24 @@ public class MainActivity extends Activity {
     			String tag = view.getTag().toString();
     			
     			wrap.removeAllViews();
-    			BaseView contentView = null;
+    			currentView = null;
     			if(tag.equals("detail"))
     			{
-    				contentView = detailView;
+    				currentView = detailView;
     			}
     			if(tag.equals("history"))
     			{
-    				contentView = historyView;
+    				currentView = historyView;
 				}
     			if(tag.equals("statistic"))
     			{
-    				contentView = statisticView;
+    				currentView = statisticView;
     			}
     			if(tag.equals("setting"))
     			{
-    				contentView = settingView;
+    				currentView = settingView;
     			}
-    			refreshView(wrap, contentView);
+    			refreshView(wrap, currentView);
     			mLeftMenu.toggle();
     			return false;
     			
@@ -108,6 +109,13 @@ public class MainActivity extends Activity {
     			break;
     		}
     		return true;
+    	}
+    }
+    
+    public static void freshView()
+    {
+    	if(currentView != null){
+    		currentView.RefreshView();
     	}
     }
 }

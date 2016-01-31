@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/edit_btn"
         android:layout_width="80dp"
         android:layout_height="28dp"
         android:layout_marginTop="5dp" >
@@ -31,6 +32,7 @@
          
         />
     <LinearLayout
+        android:id="@+id/delete_btn"
         android:layout_width="80dp"
         android:layout_height="28dp"
         android:layout_marginTop="5dp" >

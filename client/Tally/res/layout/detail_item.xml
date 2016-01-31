@@ -16,7 +16,7 @@
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/breakfast" />
+            />
 
         <TextView
             android:id="@+id/id_cosumname"

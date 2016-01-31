@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.print.attribute.ResolutionSyntax;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,10 +63,49 @@ public class DetailController {
 			consume.setLocation(location);
 			consume.setCost(BigDecimal.valueOf(Double.parseDouble(cost)));
 			detailService.addConsume(consume);
+			jsonObject.put("status", "success");
 			
 		}catch(Exception ex){
+			ex.printStackTrace();
+			jsonObject.put("status", "fail");
+		}
+		return jsonObject.toString();
+	}
+	
+	
+	@RequestMapping(value="/updateconsume",method=RequestMethod.GET)
+	@ResponseBody public String updateConsume(String Id,String userID,String consumeType,String consumeName,String cost,String location) throws JSONException{
+		JSONObject jsonObject = new JSONObject();
+		ConsumptionEntity consumptionEntity = new ConsumptionEntity();
+		try{
+			consumptionEntity.setConsumName(consumeName);
+			consumptionEntity.setConsumType(consumeType);
+			consumptionEntity.setId(Long.parseLong(Id));
+			consumptionEntity.setLocation(location);
+			consumptionEntity.setCost(BigDecimal.valueOf(Double.parseDouble(cost)));
+			detailService.updateConsume(consumptionEntity);
+			jsonObject.put("status", "success");
+		}catch(Exception ex)
+		{
+			jsonObject.put("status", "fail");
 			ex.printStackTrace();
 		}
 		return jsonObject.toString();
 	}
+	
+	@RequestMapping(value="/deleteconsume",method=RequestMethod.GET)
+	@ResponseBody public String updateConsume(String Id)throws JSONException{
+		JSONObject jsonObject = new JSONObject();
+		try {
+			detailService.deleteConsume(Long.parseLong(Id));
+			jsonObject.put("status", "success");
+		} catch (Exception ex) {
+			jsonObject.put("status", "fail");
+			ex.printStackTrace();
+		}
+		return jsonObject.toString();
+	}
+	
+	
+
 }

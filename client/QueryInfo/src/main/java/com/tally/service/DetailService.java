@@ -19,4 +19,12 @@ public class DetailService {
 	public Integer addConsume(ConsumptionEntity consume) {
 		return detailMapper.addConsume(consume);
 	}
+	
+	public Integer updateConsume(ConsumptionEntity consume){
+		return detailMapper.updateConsume(consume);
+	}
+	public Integer deleteConsume(Long Id)
+	{
+		return detailMapper.deleteConsume(Id);
+	}
 }

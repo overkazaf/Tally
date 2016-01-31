@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tally.mapper.DetailMapper">
+
+<!-- 按照日期查询消费详情单 -->
 <select id="ListTodyDetailByUserID" resultType="consumption">
-SELECT userid AS UserID,
+SELECT id AS Id,
+       userid AS UserID,
        consumName AS ConsumName,
        consumtype AS ConsumType,
        location AS Location,
@@ -24,4 +27,22 @@ INSERT INTO consumption
 #{Cost}
 );
 </insert>
+
+
+<!-- 更新消费详情 -->
+<update id="updateConsume" parameterType="consumption">
+UPDATE consumption SET
+consumname=#{ConsumName},
+consumtype=#{ConsumType},
+location=#{Location},
+cost=#{Cost}
+WHERE id=#{Id};
+</update>
+
+<!-- 删除消费详情  -->
+<delete id="deleteConsume" parameterType="Long">
+DELETE
+FROM consumption
+WHERE id=#{0};
+</delete>
 </mapper>

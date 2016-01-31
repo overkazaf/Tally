@@ -1,10 +1,11 @@
 package com.tally.views;
 
-import org.json.JSONArray;
+
 
 import com.example.tally.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.tally.activity.MainActivity;
 import com.tally.helper.TallyHttpClient;
 
 import cz.msebera.android.httpclient.Header;
@@ -21,10 +22,11 @@ import android.widget.Toast;
 public class DetailEditView extends LinearLayout {
 
 	private static LinearLayout detailEditView;
-	private static EditText consumeNameEditText;
-	private static EditText consumeLocationEditText;
-	private static EditText consumeCostEditText;
-	private static Spinner consumeTypeSpinner;
+	public static EditText consumeNameEditText;
+	public static EditText consumeLocationEditText;
+	public static EditText consumeCostEditText;
+	public static Spinner consumeTypeSpinner;
+	public static Button submitButton;
 
 	public DetailEditView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -35,9 +37,58 @@ public class DetailEditView extends LinearLayout {
 		consumeCostEditText = (EditText) findViewById(R.id.edit_cscost);
 		consumeNameEditText = (EditText) findViewById(R.id.edit_csname);
 		consumeLocationEditText = (EditText) findViewById(R.id.edit_loc);
-		Button submitBtnButton = (Button) findViewById(R.id.submitbtn);
-		submitBtnButton.setOnClickListener(new OnClickListener() {
+		consumeTypeSpinner = (Spinner) findViewById(R.id.spinner2);
+		submitButton = (Button) findViewById(R.id.submitbtn);
+		
+		submitButton.setOnClickListener(new OnClickListener() {
+			private void addConsume(RequestParams params){
+				
+				TallyHttpClient.get("addconsume", params,
+						new JsonHttpResponseHandler() {
 
+							@Override
+							public void onSuccess(int statusCode,
+									Header[] headers,
+									org.json.JSONObject response) {
+								// TODO Auto-generated method stub
+								try {
+									if (statusCode == 200
+											&& response != null
+											&& response.get("status").equals("success"))
+										Toast.makeText(getContext(), "插入成功",Toast.LENGTH_LONG).show();
+									DetailView.dismissPopWind();
+									MainActivity.freshView();
+								} catch (Exception ex) {
+									ex.printStackTrace();
+								}
+								super.onSuccess(statusCode, headers, response);
+							}
+						});
+			}
+			
+			private void updateConsume(RequestParams params){
+				String Id = DetailView.costlist.get(DetailItemView.currentItem).getId();
+				params.add("Id", Id);
+				TallyHttpClient.get("updateconsume", params,
+						new JsonHttpResponseHandler() {
+					@Override
+					public void onSuccess(int statusCode,
+							Header[] headers, org.json.JSONObject response) {
+						// TODO Auto-generated method stub
+						try {
+							if (statusCode == 200
+									&& response != null
+									&& response.get("status").equals("success"))
+								Toast.makeText(getContext(), "更新成功",Toast.LENGTH_LONG).show();
+							DetailView.dismissPopWind();
+							MainActivity.freshView();
+						} catch (Exception ex) {
+							ex.printStackTrace();
+						}
+						super.onSuccess(statusCode, headers, response);
+					}
+				});
+			}
 			@Override
 			public void onClick(View view) {
 				String userID = "0001";
@@ -53,25 +104,8 @@ public class DetailEditView extends LinearLayout {
 				params.add("consumeName", consumeName);
 				params.add("cost", consumeCost);
 				params.add("location", consumeLoc);
-				TallyHttpClient.get("addconsume", params,
-						new JsonHttpResponseHandler() {
-
-							@Override
-							public void onSuccess(int statusCode,
-									Header[] headers,
-									org.json.JSONObject response) {
-								// TODO Auto-generated method stub
-								try {
-									if (statusCode == 200
-											&& response != null
-											&& response.get("status").equals("success"))
-										Toast.makeText(getContext(), "插入成功",Toast.LENGTH_SHORT).show();
-								} catch (Exception ex) {
-									ex.printStackTrace();
-								}
-								super.onSuccess(statusCode, headers, response);
-							}
-						});
+				if(DetailEditView.submitButton.getText().equals("添加"))addConsume(params);
+				else updateConsume(params);
 			}
 		});
 	}

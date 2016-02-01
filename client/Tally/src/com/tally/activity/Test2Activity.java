@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
-public class TestActivity extends Activity {
+public class Test2Activity extends Activity {
 	
 	private Button testingButton;
 	
@@ -23,25 +23,6 @@ public class TestActivity extends Activity {
 		setContentView(R.layout.activity_test);
 		
 		testingButton = (Button) findViewById(R.id.button1);
-		
-		testingButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(TestActivity.this, Test2Activity.class);
-				TestActivity.this.startActivity(intent);
-			}
-		});
 	}
 }
 
-class MyTestOnClickListener implements OnClickListener {
-
-	@Override
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-}

@@ -28,8 +28,13 @@
         <activity android:name="com.tally.activity.MainActivity">
            
         </activity>
+
         
         <activity android:name="com.tally.activity.TestActivity">
+           
+        </activity>
+        
+        <activity android:name="com.tally.activity.Test2Activity">
            
         </activity>
         

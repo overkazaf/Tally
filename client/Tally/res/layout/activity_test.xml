@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="38dp"
         android:gravity="center"
+        android:singleLine="true"
         android:text="@string/testingText"
         android:textColor="#ffaa00" />
 
@@ -20,4 +21,13 @@
         >
         
     </Button>
+    
+    <ToggleButton 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:gravity="center"
+        android:textOff="Off"
+        android:textOn="On"
+        />
 </LinearLayout>

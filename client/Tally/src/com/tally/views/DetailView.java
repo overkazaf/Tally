@@ -72,7 +72,6 @@ public class DetailView extends BaseView {
 						String name = response.getJSONObject(i).getString("ConsumName");
 						String location = response.getJSONObject(i).getString("Location");
 					    String costType = response.getJSONObject(i).getString("ConsumType");
-					    int t = ConsumType.getBackSource(costType);
 					    detailItemView.costTypeImageView.setBackgroundResource(ConsumType.getBackSource(costType));
 					    detailItemView.costNameTextView.setText(name);
 					    detailItemView.costTextView.setText(cost);

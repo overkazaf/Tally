@@ -2,10 +2,128 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    <Button 
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="statistic"
-    />
+
+    <LinearLayout
+        android:id="@+id/topmenu"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="#1C86EE"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/statwrap"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topmenu"
+        android:paddingBottom="160dp"
+        android:orientation="horizontal" >
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="top"
+        android:padding="10dp"
+        android:showDividers="middle" >
+
+        <LinearLayout
+            android:id="@+id/line_st"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stdatetx"
+                android:textColor="#1C86EE"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/stdt_tv"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/stdatetx"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arrow"
+                android:textColor="#BABABA"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#D6D6D6" />
+
+        <LinearLayout
+            android:id="@+id/line_et"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line_st"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eddatetx"
+                android:textColor="#1C86EE"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/eddt_tv"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/stdatetx"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arrow"
+                android:textColor="#BABABA"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_cstype"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line_et"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cosumetype"
+                android:textColor="#1C86EE"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/typespinner"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/cosumtype"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

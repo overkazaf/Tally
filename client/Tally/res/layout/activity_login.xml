@@ -69,5 +69,12 @@
         android:layout_alignRight="@+id/btn_login"
         android:layout_below="@+id/btn_login"
         android:text="@string/forget_txt" />
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn_login"
+        android:layout_below="@+id/btn_login"
+        android:text="@string/signup" />
 
 </RelativeLayout>

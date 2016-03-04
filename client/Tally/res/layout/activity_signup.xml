@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp" 
+    >
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/et_name"
+        android:textSize="20sp"
+        android:text="@string/count" />
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_alignParentRight="true" 
+        android:layout_toRightOf="@+id/tv_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:inputType=""
+        android:hint="@string/tip_name">
+        <requestFocus />
+    </EditText>
+    
+    <TextView
+        android:id="@+id/tv_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/et_psw"
+        android:layout_below="@id/tv_name"
+        android:text="@string/passwd"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/et_name"
+        android:layout_below="@+id/et_name"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/tv_name"
+        android:ems="10"
+        android:hint="@string/tip_psw"
+        android:inputType="textPassword" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_repsw"
+        android:layout_alignBottom="@+id/tv_repsw"
+        android:layout_alignLeft="@+id/et_psw"
+        android:layout_alignRight="@+id/et_psw"
+        android:ems="10"
+        android:hint="@string/tip_repsw"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/tv_repsw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_psw"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/EditText01"
+        android:text="@string/passwd"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_repsw"
+        android:layout_alignRight="@+id/EditText01"
+        android:layout_below="@+id/EditText01"
+        android:layout_marginTop="18dp"
+        android:text="@string/signuptx" />
+
+</RelativeLayout>

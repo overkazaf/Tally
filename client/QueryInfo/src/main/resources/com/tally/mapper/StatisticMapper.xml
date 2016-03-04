@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tally.mapper.StatisticMapper">
+
+<!-- 按照日期获取统计信息 -->
+<select id="listStatisticEntity" resultType="statistic">
+SELECT SUM(cost) AS Cost, DATE_FORMAT(creattime,'%Y-%m-%d') AS MDate
+FROM consumption
+WHERE
+userid=#{0} 
+AND
+consumtype=#{1}
+AND creattime BETWEEN #{2} AND #{3}
+GROUP BY MDate
+ORDER BY MDate;
+</select>
+</mapper>

@@ -30,4 +30,5 @@
     <string name="signup">还没有帐号?</string>
     <string name="tip_repsw">重新输入密码</string>
     <string name="signuptx">注册</string>
+    <string name="newuser">新用户注册</string>
 </resources>

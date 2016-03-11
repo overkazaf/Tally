@@ -12,6 +12,7 @@ import com.tally.mode.TJsonHttpResponseHandler;
 import cz.msebera.android.httpclient.Header;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class LoginActivity extends Activity {
 	public static PopupWindow pw;
 	public static LinearLayout signUpView;
 	public static Drawable backDrawable;
+	private Context mContext = null;
 	private TextWatcher tw = new TextWatcher() {
 
 		@Override
@@ -71,11 +73,12 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_login);
-
+		mContext = this;
 		btn_login = (Button) this.findViewById(R.id.btn_login);
 		et_name = (EditText) findViewById(R.id.et_name);
 		et_pssd = (EditText) findViewById(R.id.et_psw);
 		tv_signup = (TextView) findViewById(R.id.signup);
+		
 		signUpView = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.pop_signup, null);
 		backDrawable = getResources().getDrawable(R.drawable.menuback);
 		
@@ -126,15 +129,17 @@ public class LoginActivity extends Activity {
 		tv_signup.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View view) {
 				// TODO µ¯³ö×¢²á¼ûÃæ
-				pw = new PopupWindow(findViewById(R.layout.activity_login), LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
+				View contentView = LayoutInflater.from(mContext).inflate(R.layout.pop_signup, null);
+				pw = new PopupWindow(contentView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
 				pw.setTouchable(true);
 				pw.setBackgroundDrawable(backDrawable);
-				pw.showAtLocation(signUpView, Gravity.CENTER, 0, 0);
+				pw.showAtLocation(view, Gravity.CENTER, 0, 0);
 			}
 		});
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
